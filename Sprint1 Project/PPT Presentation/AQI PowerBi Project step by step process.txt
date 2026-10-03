@@ -1,0 +1,43 @@
+AQI PowerBi Project
+
+1. Data checking/ Cleaning
+  a. After loading data, check whether all data are properly imported or not
+  b. Check Datatypes of column values
+  c. Transform data> view: 1. column quality, 2.column distribution to check valid, empty, error data
+  d. Home: close & apply
+
+2. Creating Date Table/ Calendar table : created for fetching year, month and day wise filter in powerBi
+  a. New table > Date > Name_table: Calender Table= calender (min,max)
+  b. New Column > Year
+     create relation between two tables: match Date columns from both two tables to make relation. (1:many)
+
+3. Building canvas
+  a. canvas settings: Hight 800px, width 1400px
+  b. canvas background: Browse image, fit image, transparency 0%
+  c. Naming or header
+
+4. Year, State, Area
+  a. Slicer : year, slicer setting> style: dropdown, single select
+  b. Slicer : State, slicer setting> style: dropdown, single select
+  c. Slicer : Area, slicer setting> style: dropdown, multiple select
+
+4. Average AQI
+  a. Gauge > aqi_data_daywise > new measure > average AQI = average(aqi_data_daywise[aqi value])
+     Average AQI measure: measure > decimal 0
+  b. Formattings:
+     1. General > background: off
+     2. General > title: off
+     3. Visual > Data lables: off
+     4. Visual > Gauge axis > Max :300
+     5. Format > send backward
+  c. Border:
+     1. Insert> Shapes> rectangle
+     2. Properties: Hight, Width
+     3. Color: #010733
+     4. Corner radius: 5%
+     5. Border radius
+  d. Max aqi, primary pollutant, category:
+     1. Max AQI: cards > aqi_value > Value : maximum
+     2. Primary pollutant: new measure > Primary Pollutant = 
+        (var Pollutant Table:  which will store number of occurrence of pollutants)
+     3. AQI category: 
